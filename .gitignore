@@ -47,4 +47,3 @@ app.*.map.json
 
 /android/app/google-services.json
 
-lib/config/configuration.dart

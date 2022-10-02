@@ -1,3 +1,4 @@
+import 'package:f_chat_template/ui/my_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
@@ -55,9 +56,11 @@ class _ChatPageState extends State<ChatPage> {
 
   Widget _item(Message element, int posicion, String uid) {
     return Card(
-      margin: const EdgeInsets.all(4.0),
+      margin: const EdgeInsets.all(6),
       // cambiamos el color dependiendo de quién mandó el usuario
-      color: uid == element.senderUid ? Colors.yellow[200] : Colors.grey[300],
+      color: uid == element.senderUid
+          ? MyTheme.lightPrimaryColor
+          : MyTheme.lightTertiaryColor,
       child: ListTile(
         title: Text(
           element.msg,
@@ -101,9 +104,19 @@ class _ChatPageState extends State<ChatPage> {
             margin: const EdgeInsets.only(left: 5.0, top: 5.0),
             child: TextField(
               key: const Key('MsgTextField'),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.white,
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: MyTheme.primaryColor),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 labelText: 'Your message',
+                labelStyle: const TextStyle(
+                  color: MyTheme.primaryColor,
+                  fontSize: 17,
+                ),
               ),
               onSubmitted: (value) {
                 _sendMsg(_controller.text);
@@ -116,6 +129,10 @@ class _ChatPageState extends State<ChatPage> {
         TextButton(
             key: const Key('sendButton'),
             child: const Text('Send'),
+            style: TextButton.styleFrom(
+                foregroundColor: MyTheme.primaryColor,
+                textStyle:
+                    const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
             onPressed: () {
               _sendMsg(_controller.text);
               _controller.clear();

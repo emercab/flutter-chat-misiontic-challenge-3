@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'controllers/authentication_controller.dart';
 import 'controllers/chat_controller.dart';
 import 'controllers/user_controller.dart';
 import 'firebase_central.dart';
+import 'package:f_chat_template/ui/my_theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -17,9 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Firebase demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: MyTheme.myTheme,
         home: const FirebaseCentral());
   }
 }

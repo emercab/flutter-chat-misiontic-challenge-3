@@ -47,7 +47,7 @@ class _UserListPageState extends State<UserListPage> {
     // Widget usado en la lista de los usuarios
     // mostramos el correo y uid
     return Card(
-      margin: const EdgeInsets.all(4.0),
+      margin: const EdgeInsets.all(6),
       child: ListTile(
         onTap: () {
           Get.to(() => const ChatPage(), arguments: [
@@ -57,8 +57,9 @@ class _UserListPageState extends State<UserListPage> {
         },
         title: Text(
           element.email,
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
-        subtitle: Text(element.uid),
+        subtitle: Text(element.uid, style: const TextStyle(fontSize: 17)),
       ),
     );
   }

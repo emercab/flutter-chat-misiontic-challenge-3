@@ -1,3 +1,4 @@
+import 'package:f_chat_template/ui/my_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,49 +26,55 @@ class AuthenticationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Chat App - Autenticación")),
+      appBar: AppBar(
+        title: const Text("Chat App - Autenticación"),
+        leading: const Icon(
+          Icons.chat,
+          size: 32,
+        ),
+      ),
       body: SafeArea(
         child: Center(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 25, horizontal: 50),
                   child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.blue.shade100,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10))),
-                    child: Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                          onPressed: signIn,
-                          child: const Text("Crear los tres usuarios"),
+                    decoration: const BoxDecoration(
+                        color: MyTheme.lightTertiaryColor,
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: ElevatedButton(
+                            onPressed: signIn,
+                            child: const Text("Crear los tres usuarios"),
+                          ),
                         ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Antes de crear los usuarios, borrar todos los usuarios del sistema de autenticación y la base de datos de tiempo real de firebase',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                      )
-                    ]),
+                        const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Text(
+                            'Antes de crear los usuarios, borrar todos los usuarios del sistema de autenticación y la base de datos de tiempo real de firebase.',
+                            style: TextStyle(
+                                color: MyTheme.darkColor, fontSize: 18),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 25, horizontal: 50),
                     child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.blue.shade100,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10))),
+                      decoration: const BoxDecoration(
+                          color: MyTheme.lightTertiaryColor,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
