@@ -15,15 +15,16 @@ Future<void> main() async {
   // aquí nos conectamos a los servicios de
   // firebase
   await Firebase.initializeApp(
-      options: const FirebaseOptions(
-    apiKey: Configuration.apiKey,
-    authDomain: Configuration.authDomain,
-    databaseURL: Configuration.databaseURL,
-    projectId: Configuration.projectId,
-    // storageBucket: Configuration.storageBucket,
-    messagingSenderId: Configuration.messagingSenderId,
-    appId: Configuration.appId,
-    // measurementId: Configuration.measurementId),
-  ));
+    options: const FirebaseOptions(
+      apiKey: Configuration.apiKey,
+      authDomain: Configuration.authDomain,
+      databaseURL: Configuration.databaseURL,
+      projectId: Configuration.projectId,
+      // storageBucket: Configuration.storageBucket,
+      messagingSenderId: Configuration.messagingSenderId,
+      appId: Configuration.appId,
+      // measurementId: Configuration.measurementId),
+    ),
+  );
   runApp(const MyApp());
 }

@@ -22,7 +22,7 @@ class ChatController extends GetxController {
   // stream de actualizaciones
   late StreamSubscription<DatabaseEvent> updateEntryStreamSubscription;
 
-  // método en el que nos suscribimos  a los dos streams
+  // método en el que nos suscribimos a los dos streams
   void subscribeToUpdated(uidUser) {
     messages.clear();
 
@@ -31,30 +31,43 @@ class ChatController extends GetxController {
 
     String chatKey = getChatKey(authenticationController.getUid(), uidUser);
 
-    // TODO
-    // newEntryStreamSubscription = databaseReference - child msg - child chatKey - listen
+    // TO DO
+    newEntryStreamSubscription = databaseReference
+        .child('msg')
+        .child(chatKey)
+        .onChildAdded
+        .listen((event) => _onEntryAdded(event));
 
-    // TODO
-    //  updateEntryStreamSubscription = databaseReference - child msg - child chatKey - listen
+    // TO DO
+    updateEntryStreamSubscription = databaseReference
+        .child('msg')
+        .child(chatKey)
+        .onChildChanged
+        .listen((event) => _onEntryChanged(event));
   }
 
   // método en el que cerramos los streams
   void unsubscribe() {
-    //TODO
-    // cancelar las subscripciones a los streams
+    //TO DO
+    newEntryStreamSubscription.cancel();
+    updateEntryStreamSubscription.cancel();
   }
 
   // este método es llamado cuando se tiene una nueva entrada
   _onEntryAdded(DatabaseEvent event) {
     final json = event.snapshot.value as Map<dynamic, dynamic>;
-    messages.add(Message.fromJson(event.snapshot, json));
+    messages.add(
+      Message.fromJson(event.snapshot, json),
+    );
   }
 
   // este método es llamado cuando hay un cambio es un mensaje
   _onEntryChanged(DatabaseEvent event) {
-    var oldEntry = messages.singleWhere((entry) {
-      return entry.key == event.snapshot.key;
-    });
+    var oldEntry = messages.singleWhere(
+      (entry) {
+        return entry.key == event.snapshot.key;
+      },
+    );
 
     final json = event.snapshot.value as Map<dynamic, dynamic>;
     messages[messages.indexOf(oldEntry)] =
@@ -91,8 +104,12 @@ class ChatController extends GetxController {
     String key = getChatKey(authenticationController.getUid(), remoteUserUid);
     String senderUid = authenticationController.getUid();
     try {
-      // TODO
-      // databaseReference - child('msg') - child(key) - push() - set({'senderUid': senderUid, 'msg': msg})
+      // TO DO
+      databaseReference
+          .child('msg')
+          .child(key)
+          .push()
+          .set({'senderUid': senderUid, 'msg': msg});
     } catch (error) {
       logError(error);
       return Future.error(error);
