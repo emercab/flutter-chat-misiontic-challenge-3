@@ -31,8 +31,7 @@ class AuthenticationController extends GetxController {
 
       UserController userController = Get.find();
 
-      // después creamos el usuario en la base de datos de tiempo real usando el
-      // userController
+      // después creamos el usuario en la base de datos de tiempo real usando el userController
       await userController.createUser(email, userCredential.user!.uid);
       return Future.value();
     } on FirebaseAuthException catch (e) {

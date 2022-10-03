@@ -43,7 +43,7 @@ class AuthenticationPage extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 25, horizontal: 50),
                   child: Container(
                     decoration: const BoxDecoration(
-                        color: MyTheme.lightTertiaryColor,
+                        color: MyTheme.secondaryColor,
                         borderRadius: BorderRadius.all(Radius.circular(15))),
                     child: Column(
                       children: [
@@ -59,7 +59,7 @@ class AuthenticationPage extends StatelessWidget {
                           child: Text(
                             'Antes de crear los usuarios, borrar todos los usuarios del sistema de autenticación y la base de datos de tiempo real de firebase.',
                             style: TextStyle(
-                                color: MyTheme.darkColor, fontSize: 18),
+                                color: MyTheme.lightPrimaryColor, fontSize: 18),
                           ),
                         )
                       ],
@@ -73,7 +73,7 @@ class AuthenticationPage extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       decoration: const BoxDecoration(
-                          color: MyTheme.lightTertiaryColor,
+                          color: MyTheme.secondaryColor,
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
