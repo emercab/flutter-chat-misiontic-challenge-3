@@ -123,20 +123,31 @@ class _ChatPageState extends State<ChatPage> {
                 _controller.clear();
               },
               controller: _controller,
+              textCapitalization: TextCapitalization.sentences,
             ),
           ),
         ),
         TextButton(
-            key: const Key('sendButton'),
-            child: const Text('Send'),
-            style: TextButton.styleFrom(
-                foregroundColor: MyTheme.primaryColor,
-                textStyle:
-                    const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
-            onPressed: () {
-              _sendMsg(_controller.text);
-              _controller.clear();
-            })
+          key: const Key('sendButton'),
+          child: const Text(
+            'Send',
+            textAlign: TextAlign.right,
+          ),
+          style: TextButton.styleFrom(
+            foregroundColor: MyTheme.primaryColor,
+            textStyle:
+                const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+          ),
+          onPressed: () {
+            _sendMsg(_controller.text);
+            _controller.clear();
+          },
+        ),
+        const Icon(
+          Icons.arrow_right,
+          color: MyTheme.primaryColor,
+          size: 32,
+        ),
       ],
     );
   }

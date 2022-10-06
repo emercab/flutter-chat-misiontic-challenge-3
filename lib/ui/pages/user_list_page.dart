@@ -1,4 +1,5 @@
 import 'package:f_chat_template/ui/controllers/chat_controller.dart';
+import 'package:f_chat_template/ui/my_theme.dart';
 import 'package:f_chat_template/ui/pages/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -45,19 +46,31 @@ class _UserListPageState extends State<UserListPage> {
 
   Widget _item(AppUser element) {
     // Widget usado en la lista de los usuarios
-    // mostramos el correo y uid
+    // mostramos un avatar, el correo y uid
     return Card(
       margin: const EdgeInsets.all(6),
       child: ListTile(
         onTap: () {
-          Get.to(() => const ChatPage(), arguments: [
-            element.uid,
-            element.email,
-          ]);
+          Get.to(
+            () => const ChatPage(),
+            arguments: [
+              element.uid,
+              element.email,
+              element.urlImage,
+            ],
+          );
         },
+        leading: CircleAvatar(
+          radius: 26,
+          backgroundImage: NetworkImage(element.urlImage),
+        ),
         title: Text(
           element.email,
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: MyTheme.primaryColor,
+          ),
         ),
         subtitle: Text(element.uid, style: const TextStyle(fontSize: 17)),
       ),
@@ -85,9 +98,10 @@ class _UserListPageState extends State<UserListPage> {
 
   @override
   Widget build(BuildContext context) {
+    final userEmail = authenticationController.userEmail();
     return Scaffold(
         appBar: AppBar(
-          title: Text("Chat App ${authenticationController.userEmail()}"),
+          title: Text("User $userEmail chats"),
           actions: [
             // botón para crear unos chats para arrancar el demo
             IconButton(

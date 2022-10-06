@@ -97,8 +97,7 @@ class ChatController extends GetxController {
     }
   }
 
-  // Este método es usado para agregar una nueva entrada en la "tabla" entre los
-  // dos usuarios
+  // Este método es usado para agregar una nueva entrada en la "tabla" entre los dos usuarios
   Future<void> sendChat(remoteUserUid, msg) async {
     AuthenticationController authenticationController = Get.find();
     String key = getChatKey(authenticationController.getUid(), remoteUserUid);
