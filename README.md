@@ -13,5 +13,5 @@ https://github.com/emercab/flutter-chat-misiontic-challenge-3.git
 
 ## Video de Explicación
 
-https://youtu.be/AX0iepxOnSE
+https://youtu.be/YalMUpNy3Mw
 
