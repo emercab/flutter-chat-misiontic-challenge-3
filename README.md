@@ -1,15 +1,17 @@
-# f_chat_template
+# Reto #3
 
-Un template para una aplicación de chat usando la base de datos de tiempo real de firebase
+Construcción de una aplicación en la que se implementa un chat entre tres usuarios.
 
-Video: https://youtu.be/B3SfN_NcBjk
+## Lógica
+El usuario al iniciar la app ingresa por medio de los botones como uno de los usuarios ya creados A, B o C
+luego podra seleccionar con cual usuario establesera una comunicacion por medio de mensajes de texto
+y iniciar la misma escribiendo el mensaje.
 
-Funcional con Android y Web
+## Link de repositorio
 
+https://github.com/emercab/flutter-chat-misiontic-challenge-3.git
 
-![chat](https://user-images.githubusercontent.com/4458129/174921637-af104c0d-a64a-4625-b3af-9d4acd37cee5.gif)
+## Video de Explicación
 
-Solución:
-
-https://github.com/MisionTIC4b/f_chat
+https://youtu.be/AX0iepxOnSE
 
